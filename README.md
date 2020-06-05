@@ -12,6 +12,8 @@ To run this software, head over to the console on this folder and type:
 
     $ cd rockstar_coding_challenge
 
+    $ mix deps.get
+
     $ iex -S mix
 
     iex> BairesDev.LinkedInAnalysis.get_best_100_matches("data/people.in")
