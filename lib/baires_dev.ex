@@ -3,6 +3,15 @@ defmodule BairesDev do
   Documentation for `BairesDev` LinkedIn Analysis.
   """
   defmodule LinkedInAnalysis do
+    @doc ~S"""
+    Reads the file that is being passed as an argument.
+    It streams the file so that it can be processed lazily (line by line in this case)
+    After the reading, we filter to accept only the lines that are not empty and we trim each line to remove tabs.
+    Later we parse the line into a person structure, giving the keys to the values, and assigning each person a points key with value 0.
+    After the person is set, we start a series of evaluations to start giving points depending on the values each person has.
+    We will evaluate their countries, industries and positions and give each a grade from 1 to 4.
+    After that, we sort the list putting the ones with more points on top and we get 100.
+    """
     def get_best_100_matches(file_path) do
       file_path
       |> File.stream!()
@@ -45,7 +54,8 @@ defmodule BairesDev do
     end
 
     @doc ~S"""
-    Sets the
+    Sets the proper grade (from 1 to 4) based on the current role of the person.
+    We give preference to the roles that are more able to make decisions in the company.
     """
     def evaluate_person_current_role(%{current_role: role, points: points} = person) do
       new_points = cond do
@@ -58,6 +68,10 @@ defmodule BairesDev do
       %{person | points: points + new_points}
     end
 
+    @doc ~S"""
+    Sets the proper grade (from 1 to 4) based on the country of the person.
+    The preference is for countries in America, as many of the employees of the company live there.
+    """
     def evaluate_person_country(%{country: country, points: points} = person) do
       most_probable = [
         "United States", "Canada", "Costa Rica", "Mexico", "Dominica", "Argentina", "Chile",
@@ -83,6 +97,10 @@ defmodule BairesDev do
       %{person | points: points + new_points}
     end
 
+    @doc ~S"""
+    Sets the proper grade (from 1 to 4) based on the industry of the person.
+    The preference is for the ones that are more probable to have software development done inside.
+    """
     def evaluate_person_industry(%{industry: industry, points: points} = person) do
       new_points = cond do
         industry in ["Computer Software", "Information Technology and Services", "Banking"] -> 4
