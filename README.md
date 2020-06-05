@@ -7,9 +7,8 @@ It is written in *elixir*. To install Elixir, head over to [the official website
 To run this software, head over to the console on this folder and type:
 
     $ iex -S mix
-```
+
     iex> BairesDev.LinkedInAnalysis.get_best_100_matches("data/people.in")
-```
 
 In other to run the script that creates the people.out with the 100 best, run:
 
