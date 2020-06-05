@@ -20,7 +20,6 @@ To run this software, head over to the console on this folder and type:
 
 In order to run the script that creates the people.out with the 100 best:
 
-    $ mix compile
     $ mix generate_people_out
 
 In order to run the tests:
