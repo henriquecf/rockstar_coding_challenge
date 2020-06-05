@@ -8,6 +8,10 @@ It is written in *elixir*. To install Elixir, head over to [the official website
 
 To run this software, head over to the console on this folder and type:
 
+    $ git clone https://github.com/henriquecf/rockstar_coding_challenge
+
+    $ cd rockstar_coding_challenge
+
     $ iex -S mix
 
     iex> BairesDev.LinkedInAnalysis.get_best_100_matches("data/people.in")
