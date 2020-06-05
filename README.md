@@ -24,7 +24,7 @@ In order to test it run:
 
 - The Module that contains the logic to read the file, evaluate some fields and return the result. This file is: [lib/baires_dev.ex](lib/baires_dev.ex)
 - The Module that does the testing: [test/baires_dev_test.exs](test/baires_dev_test.exs)
-- The “script” that generates the people.out file: [lib/mix/tasks/generate_people.ex](lib/mix/tasks/generate_people.ex)
+- The “script” that generates the people.out file: [lib/mix/tasks/generate_people_out.ex](lib/mix/tasks/generate_people_out.ex)
 
 ### Mention in which ways your algorithm could be improved.
 
